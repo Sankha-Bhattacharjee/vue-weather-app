@@ -1,9 +1,9 @@
 <template>
     <main>
       <div class="search-box">
-        <input type="text" class="search-bar" placeholder="Search...">
+        <input type="text" class="search-bar" placeholder="Search..." v-model="query" @keypress="fetchResponse">
       </div>
-      <weather-wrap/>
+      <weather-wrap :weather-details='weather' v-if="showData"/>
     </main>
 </template>
 
@@ -11,8 +11,31 @@
 import WeatherWrap from './WeatherWrap.vue';
 
 export default {
+  props:['apiKey','baseUrl'],
   components:{
     WeatherWrap,
+    },
+    data(){
+      return{
+        query: '',
+        weather: {},
+        showData: false,
+      }
+    },
+    methods:{
+      fetchResponse(e){
+        if(e.key == "Enter"){
+          fetch(`${this.baseUrl}weather?q=${this.query}&units=metric&APPID=${this.apiKey}`)
+          .then(res =>{
+            return res.json();
+          }).then(this.setResults)
+        }
+      },
+      setResults(results){
+        this.weather = results;
+        this.showData = true;
+        console.log(this.weather)
+      }
     }
 }
 </script>

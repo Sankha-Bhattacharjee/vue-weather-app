@@ -1,16 +1,23 @@
 <template>
     <div class="weather-wrap">
       <div class="location-box">
-        <div class="location">Naihati, India</div>
+        <div class="location">{{weatherDetails.name}}, {{weatherDetails.sys.country}}</div>
         <div class="date">Wednesday 29 June, 2022</div>
       </div>
 
       <div class="weather-box">
-        <div class="temp">35&#8451;</div>
-        <div class="weather">Rain</div>
+        <div class="temp">{{Math.round(weatherDetails.main.temp)}}&#8451;</div>
+        <div class="weather">{{weatherDetails.weather[0].main}}</div>
       </div>
     </div>
 </template>
+
+
+<script>
+export default {
+  props: ['weatherDetails']
+}
+</script>
 
 <style scoped>
 

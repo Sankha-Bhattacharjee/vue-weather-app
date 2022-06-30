@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <search-box/>
+    <search-box :api-key='api_key' :base-url='url_base'/>
   </div>
 </template>
 
@@ -14,6 +14,7 @@ export default {
   data(){
     return {
       api_key:'2b187d8543d96d8cee3cc12e77f94d6b',
+      url_base: 'https://api.openweathermap.org/data/2.5/',
     };
   }
 }
