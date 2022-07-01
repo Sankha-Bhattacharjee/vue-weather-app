@@ -1,19 +1,22 @@
 <template>
     <main>
       <div class="search-box">
-        <input type="text" class="search-bar" placeholder="Search..." v-model="query" @keypress="fetchResponse">
+        <input type="text" class="search-bar" placeholder="Search City..." v-model="query" @keypress="fetchResponse">
       </div>
       <weather-wrap :weather-details='weather' v-if="showData"/>
+      <base-title v-else/>
     </main>
 </template>
 
 <script>
 import WeatherWrap from './WeatherWrap.vue';
+import BaseTitle from './BaseTitle.vue';
 
 export default {
   props:['apiKey','baseUrl'],
   components:{
     WeatherWrap,
+    BaseTitle
     },
     data(){
       return{
