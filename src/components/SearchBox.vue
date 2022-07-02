@@ -3,7 +3,7 @@
       <div class="search-box">
         <input type="text" class="search-bar" placeholder="Search City..." v-model="query" @keypress="fetchResponse">
       </div>
-      <weather-wrap :weather-details='weather' v-if="showData"/>
+      <weather-wrap :weather-details='weather' v-if="showData && !isError"/>
       <base-title v-else/>
     </main>
 </template>
@@ -13,6 +13,7 @@ import WeatherWrap from './WeatherWrap.vue';
 import BaseTitle from './BaseTitle.vue';
 
 export default {
+  emits:['error-message'],
   props:['apiKey','baseUrl'],
   components:{
     WeatherWrap,
@@ -23,20 +24,30 @@ export default {
         query: '',
         weather: {},
         showData: false,
+        isError: false,
       }
     },
     methods:{
-      fetchResponse(e){
+     fetchResponse(e){
         if(e.key == "Enter"){
           fetch(`${this.baseUrl}weather?q=${this.query}&units=metric&APPID=${this.apiKey}`)
           .then(res =>{
+            if(!res.ok){
+               return Promise.reject(res.statusText || 'Something went wrong!');
+            }
             return res.json();
           }).then(this.setResults)
+          .catch(error => {
+           // console.log('error logged:',error);
+            this.isError = true;
+            this.$emit('error-message',error);
+          });
         }
       },
       setResults(results){
         this.weather = results;
         this.showData = true;
+        this.isError = false;
         console.log(this.weather)
       }
     }
