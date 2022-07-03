@@ -14,7 +14,7 @@
       </div>
       <div class="other-details-box">
         <div class="humidity">
-          Humidity: {{weatherDetails.main.humidity}} %
+          Humidity: {{weatherDetails.main.humidity}}%
         </div>
         <div class="pressure">
           Pressure: {{weatherDetails.main.pressure}} hPa
@@ -122,5 +122,33 @@ export default {
   font-size: 20px;
   font-weight: 300;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.25);
+}
+@media only screen and (max-width: 720px){
+  .location-box .location{
+    font-size: 25px;
+  }
+  .location-box .date{
+    font-size: 17px;
+  }
+  .weather-box .temp .original-temp{
+    font-size: 75px;
+    font-weight: 700;
+  }
+  .weather-box .temp .feels-temp{
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .weather-box .weather{
+    font-size: 35px;
+  }
+  .other-details-box{
+    margin: 25px auto 0 auto;
+    width: 220px;
+    padding: 7px 12px;
+  }
+  .humidity,.pressure,.wind-speed{
+    font-size: 17px;
+    font-weight: 200;
+  }
 }
 </style>

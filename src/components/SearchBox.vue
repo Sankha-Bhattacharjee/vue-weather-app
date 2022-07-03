@@ -48,7 +48,7 @@ export default {
         this.weather = results;
         this.showData = true;
         this.isError = false;
-        console.log(this.weather)
+        //console.log(this.weather);
       }
     }
 }
@@ -85,5 +85,16 @@ main{
   box-shadow: 0 0 15px rgba(0, 0, 0,0.25);
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 15px 0;
+}
+@media only screen and (max-width: 720px){
+  .search-box .search-bar{
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 480px){
+  .search-box .search-bar{
+    width: 100%;
+    padding: 9px;
+  }
 }
 </style>

@@ -15,5 +15,10 @@ h3{
     color: white;
     text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
 }
+@media only screen and (max-width: 480px){
+    h3{
+        font-size: 40px;
+    }
+}
 </style>
 

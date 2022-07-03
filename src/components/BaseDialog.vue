@@ -96,4 +96,36 @@ text-shadow: 3px 3px rgba(0, 0, 0, 0.26);
   opacity: 1;
   transform: scale(1);
 }
+@media only screen and (max-width: 728px){
+  dialog{
+    left: 35%;
+    width: 33%;
+    height: 20%;
+  }
+  .button-positions {
+    margin-top: 15%;
+  }
+  .error-text{
+    font-size: 17px;
+  }
+  button{
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  dialog{
+    left: 30%;
+    width: 45%;
+    height: 15%;
+  }
+  .button-positions {
+    margin-top: 15%;
+  }
+  .error-text{
+    font-size: 15px;
+  }
+  button{
+    font-size: 12px;
+  }
+}
 </style>
