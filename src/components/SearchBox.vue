@@ -30,6 +30,8 @@ export default {
     methods:{
      fetchResponse(e){
         if(e.key == "Enter"){
+          //console.log(e.target.onblur)
+          e.target.blur();
           fetch(`${this.baseUrl}weather?q=${this.query}&units=metric&APPID=${this.apiKey}`)
           .then(res =>{
             if(!res.ok){

@@ -31,8 +31,8 @@ dialog {
   position: fixed;
   top: 40vh;
   left: 37%;
-  width: 25%;
-  height: 15%;
+  min-width: 25%;
+  min-height: 15%;
   z-index: 100;
   border-radius: 12px;
   border: none;
@@ -99,11 +99,11 @@ text-shadow: 3px 3px rgba(0, 0, 0, 0.26);
 @media only screen and (max-width: 728px){
   dialog{
     left: 35%;
-    width: 33%;
-    height: 20%;
+    min-width: 33%;
+    min-height: 20%;
   }
   .button-positions {
-    margin-top: 15%;
+    margin-top: 12%;
   }
   .error-text{
     font-size: 17px;
@@ -115,8 +115,8 @@ text-shadow: 3px 3px rgba(0, 0, 0, 0.26);
 @media only screen and (max-width: 480px) {
   dialog{
     left: 30%;
-    width: 45%;
-    height: 15%;
+    min-width: 45%;
+    min-height: 15%;
   }
   .button-positions {
     margin-top: 15%;
