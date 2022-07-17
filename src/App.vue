@@ -54,7 +54,8 @@ body{
 #app{
   background-image: url('./assets/bg.jpg');
   background-size: cover;
-  background-position: bottom;
+  background-position: bottom; 
+  /* height: 100vh; */
   transition: 0.5s;
 }
 </style>
